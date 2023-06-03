@@ -1,0 +1,8 @@
+{
+  "name": "scotty-api-adapter",
+  "version": "1.0.5",
+  "description": "",
+  "main": "index.js",
+  "author": "Sulphire",
+  "license": "ISC"
+}
