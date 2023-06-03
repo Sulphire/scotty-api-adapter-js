@@ -2,7 +2,7 @@
 ## Preface
 This is a simple adapter for the Austrian OEBB Scotty (Hafas) Transport API. This is **unofficial** as there is no public documentation available for the original API.
 
-Sulphire dose not guarantee that this adapter will work in the future as the API is not officially supported. As of right now, our adapter is working for most routes. The official API structure is very outdated, please see the disclaimer below for more details.
+Sulphire does not guarantee that this adapter will work in the future as the API is not officially supported. As of right now, our adapter is working for most routes. The official API structure is very outdated, please see the disclaimer below for more details.
 
 ### Disclaimer
 The original API is using time based on IP address geolocation and does not return the time in the timezone of departure. It is also not possible to change the timezone at the moment. The time the API returns is a simple "hhmmss" string, same goes for the date. There is no timezone info.
@@ -39,7 +39,7 @@ const journeys = await scotty.getTransportOptions(startLocation, endLocation, da
 - `real` time object might be undefined, please use scheduled time if real time is undefined
 ### Journey
 A journey as returned by `getTransportOptions`. `start` and `end`'s scheduled and real are objects with { hours, minutes, seconds} as integers. `timeline` is an array of Timeline objects. `stopName` is the name of the stop. `platform` is the platform number, if available. `timelineHash` is a hash of the timeline array, this is only used for internal duplicate checking.
-```json
+```
 {
   "timeline": Timeline[],
   "start": { scheduled, real, stopName, (platform) },
@@ -52,7 +52,7 @@ This is the order of a journey. `dep` and `arr` times are objects with { hours, 
 
 A journey where you start in a Bus and have to switch to train or a different Bus would look like this:
 `JNY -> TNSF -> JNY`
-```json
+```
 {
   "type": "JNY" | "WALK" | "TNSF",
   "dep": { scheduled, real, stopName, (platform) },
@@ -63,7 +63,7 @@ A journey where you start in a Bus and have to switch to train or a different Bu
 ```
 ### TransportMode
 Transport mode as returned by the API. Type values are similar to "Bus" or "Train", depending on the source.
-```json
+```
 {
   "type": string,
   "num": string,
